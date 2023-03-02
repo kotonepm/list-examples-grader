@@ -17,13 +17,8 @@ class ExecHelpers {
     option, but using Java 8 for compatibility with ieng6.
   */
   static String streamToString(InputStream out) throws IOException {
-    String result = "";
-    while(true) {
-      int c = out.read();
-      if(c == -1) { break; }
-      result += (char)c;
-    }
-    return result;
+    //On newer versions of Java, we could fill in this method body much more simply using a built-in method.
+    return new String(out.readAllBytes());
   }
 
   /**
